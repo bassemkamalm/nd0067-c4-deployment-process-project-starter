@@ -8,4 +8,4 @@ export AWS_BUCKET=arn:aws:s3:::udagrambucket01
 export AWS_REGION=us-west-2
 export AWS_PROFILE=default
 export JWT_SECRET=mysecretstring
-export URL=http://localhost:8100
+export URL=http://udagram-api-dev22.us-west-2.elasticbeanstalk.com/
