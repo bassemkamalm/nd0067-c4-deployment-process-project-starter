@@ -70,3 +70,5 @@ The e2e tests are using Protractor and Jasmine.
 ## License
 
 [License](LICENSE.txt)
+
+eb setenv POSTGRES_HOST=udagram.c7vlefujubju.us-west-2.rds.amazonaws.com DB_PORT=5432 PORT=3000 POSTGRES_DB=udagram POSTGRES_USERNAME=postgres POSTGRES_PASSWORD=postgres AWS_REGION=us-west-2 AWS_PROFILE=default AWS_BUCKET=udagrambucket01 URL=udagram-api-dev22.us-west-2.elasticbeanstalk.com JWT_SECRET=Bassem ENV=dev DCRYPT_PASSWORD=speak-friend-and-enter SALT_ROUNDS=10 TOKEN_SECRET=alllalal123 AWS_ACCESS_KEY_ID=AKIAQN5MF5FGMBJBVSWN AWS_SECRET_ACCESS_KEY=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 EB_APP=udagram-api EB_ENV=udagram-api-dev
