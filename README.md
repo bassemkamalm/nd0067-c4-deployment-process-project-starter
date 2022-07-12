@@ -72,3 +72,78 @@ The e2e tests are using Protractor and Jasmine.
 [License](LICENSE.txt)
 
 eb setenv POSTGRES_HOST=udagram.c7vlefujubju.us-west-2.rds.amazonaws.com DB_PORT=5432 PORT=3000 POSTGRES_DB=udagram POSTGRES_USERNAME=postgres POSTGRES_PASSWORD=postgres AWS_REGION=us-west-2 AWS_PROFILE=default AWS_BUCKET=udagrambucket01 URL=udagram-api-dev22.us-west-2.elasticbeanstalk.com JWT_SECRET=Bassem ENV=dev DCRYPT_PASSWORD=speak-friend-and-enter SALT_ROUNDS=10 TOKEN_SECRET=alllalal123 AWS_ACCESS_KEY_ID=AKIAQN5MF5FGD6F4LGGF AWS_SECRET_ACCESS_KEY=WrA5hdJK6/xPFisylWsa7Hx1ha2XpLccaF4amdkmeb  EB_APP=udagram-api EB_ENV=udagram-api-dev
+
+
+
+Mohamed Aboelmaged
+ Yesterday at 1:52 PM
+2022-07-12 11:50:55    ERROR   One or more objects in the Elastic Beanstalk bucket could not be deleted. Verify that your S3 policies allow you to perform 's3:DeleteObject'.
+2022-07-12 11:50:56    ERROR   Failed to deploy application.        
+                                                                      
+ERROR: ServiceError - Failed to deploy application
+image.png 
+image.png
+
+
+3 replies
+
+
+
+{
+    "Version": "2012-10-17",
+    "Id": "BeanstalkS3Copy",
+    "Statement": [
+        {
+            "Sid": "",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::004493430015:role/aws-elasticbeanstalk-ec2-role"
+            },
+            "Action": [
+                "s3:ListBucketVersions",
+                "s3:ListBucket",
+                "s3:GetObjectVersion",
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::elasticbeanstalk-us-east-1-004493430015",
+                "arn:aws:s3:::elasticbeanstalk-us-east-1-004493430015/*"
+            ]
+        },
+        {
+            "Sid": "eb-ad78f54a-f239-4c90-adda-49e5f56cb51e",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::004493430015:role/aws-elasticbeanstalk-ec2-role"
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::elasticbeanstalk-us-east-1-004493430015/resources/environments/logs/*"
+        },
+        {
+            "Sid": "eb-af163bf3-d27b-4712-b795-d1e33e331ca4",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::004493430015:role/aws-elasticbeanstalk-ec2-role"
+            },
+            "Action": [
+                "s3:ListBucket",
+                "s3:ListBucketVersions",
+                "s3:GetObject",
+                "s3:GetObjectVersion"
+            ],
+            "Resource": [
+                "arn:aws:s3:::elasticbeanstalk-us-east-1-004493430015",
+                "arn:aws:s3:::elasticbeanstalk-us-east-1-004493430015/resources/environments/*"
+            ]
+        },
+        {
+            "Sid": "eb-58950a8c-feb6-11e2-89e0-0800277d041b",
+            "Effect": "Deny",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:DeleteBucket",
+            "Resource": "arn:aws:s3:::elasticbeanstalk-us-east-1-004493430015"
+        }
+    ]
+}
