@@ -3,6 +3,7 @@
 export POSTGRES_USERNAME=postgres
 export POSTGRES_PASSWORD=postgres
 export DB_PORT=5432
+export PORT=3000
 export POSTGRES_HOST=udagram.c7vlefujubju.us-west-2.rds.amazonaws.com
 export POSTGRES_DB=udagram
 export AWS_BUCKET=udagrambucket01
