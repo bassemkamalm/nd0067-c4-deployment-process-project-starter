@@ -18,4 +18,4 @@
 ### Deploy
     `npm run deploy`
 
-![pipeline steps image](pipeline steps.drawio.png)
+![pipeline steps image](pipeline steps.drawio.png) .
